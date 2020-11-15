@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import estiloRotasDrawer from './estiloRotasDrawer';
@@ -8,14 +8,14 @@ function DrawerPersonalizado(props) {
     <DrawerContentScrollView {...props}>
 
       <View style={estiloRotasDrawer.fotoContainer}>
-        <Image 
+        <Image
           style={estiloRotasDrawer.foto}
           source={require('../../../assets/imagens/foto.jpg')}
         />
         <Text style={estiloRotasDrawer.nome}>Administrador</Text>
       </View>
 
-      <DrawerItemList {...props}/>
+      <DrawerItemList {...props} />
 
     </DrawerContentScrollView>
   );

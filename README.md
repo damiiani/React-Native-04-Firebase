@@ -1,2 +1,3 @@
-# React-Native-04-Firebase
-Exemplo de CRUD com o Firebase Firestore.
+# Aula 7 da matéria de P.A.M. I
+
+Exemplo de CRUD com o Firebase Firestore

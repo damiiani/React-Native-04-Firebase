@@ -4,16 +4,12 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import RotasLoginStack from './src/components/rotasStack/RotasLoginStack';
 
-const App = () => {
-  return (
-    <NavigationContainer >
+const App = () => (
+  <NavigationContainer>
+    <StatusBar barStyle="light-content" backgroundColor="#081a31" />
 
-        <StatusBar barStyle="light-content" backgroundColor="#081a31" />  
-
-        <RotasLoginStack />
-  
-    </NavigationContainer>
-  );
-};
+    <RotasLoginStack />
+  </NavigationContainer>
+);
 
 export default App;
