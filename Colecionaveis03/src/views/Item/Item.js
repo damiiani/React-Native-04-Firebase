@@ -4,17 +4,33 @@ import {
 } from 'react-native';
 import { MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import LivroFB from '../../firebase/livroFB';
 import estiloItem from './estiloItem';
 
 function Item({ navigation, route }) {
   const { operacao } = route.params;
   const [item, setItem] = useState({});
+  const livroFB = new LivroFB();
 
   const voltar = () => {
     navigation.navigate('Inicial');
   };
-  const salvar = () => {};
-  const remover = () => {};
+
+  const salvar = (i) => {
+    if (operacao === 'adicionar') {
+      livroFB.adicionarLivro(i);
+    } else {
+      livroFB.editarLivro(i);
+    }
+
+    voltar();
+  };
+
+  const remover = (i) => {
+    livroFB.removerLivro(i);
+
+    voltar();
+  };
 
   useEffect(() => {
     setItem(route.params.item);
@@ -83,13 +99,13 @@ function Item({ navigation, route }) {
         </View>
 
         <View style={estiloItem.botoesContainer}>
-          <TouchableOpacity onPress={salvar} style={estiloItem.botaoContainer}>
+          <TouchableOpacity onPress={() => salvar(item)} style={estiloItem.botaoContainer}>
             <LinearGradient colors={['#4c669f', '#192f6a', '#081a31']} style={estiloItem.botao}>
               <MaterialIcons name="save" size={28} color="white" />
             </LinearGradient>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={remover} style={estiloItem.botaoContainer}>
+          <TouchableOpacity onPress={() => remover(item)} style={estiloItem.botaoContainer}>
             <LinearGradient colors={['#4c669f', '#192f6a', '#081a31']} style={estiloItem.botao}>
               <MaterialIcons name="delete" size={28} color="white" />
             </LinearGradient>
